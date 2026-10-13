@@ -34,18 +34,8 @@ if uploaded_file is not None:
 
                 from epub_pinyin import process_epub
 
-                result = subprocess.run(process_epub (in_path, out_path), 
-                    command, 
-                    capture_output=True, 
-                    text=True, 
-                    check=True
-                )
+                process_epub(in_path, out_path)
                 
-                # For this dummy 'echo' example, we simulate creating the output file
-                # Remove these 2 lines below when using a real tool that generates the file automatically
-                with open(out_path, "wb") as f:
-                    f.write(uploaded_file.getvalue() + b"\n# Processed")
-
                 # 4. Read the processed file back into memory
                 with open(out_path, "rb") as temp_out:
                     processed_data = temp_out.read()
@@ -56,7 +46,7 @@ if uploaded_file is not None:
                 st.download_button(
                     label="Download Processed EPUB",
                     data=processed_data,
-                    file_name="processed_" + uploaded_file.name,
+                    file_name="pinyin_" + uploaded_file.name,
                     mime="application/epub+zip"
                 )
 
