@@ -2,7 +2,7 @@ import io
 import zipfile
 import streamlit as st
 
-st.title("EPUB Editor in Streamlit")
+st.title("Pinyin Epub Annotator  ")
 
 uploaded_file = st.file_uploader("Upload an EPUB file", type=["epub"])
 
