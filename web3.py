@@ -42,6 +42,7 @@ if uploaded_file is not None:
                 st.code(e.stderr)
                 
             #cleanup
+            finally:
                 if os.path.exists(in_path):
                     os.remove(in_path)
                 if os.path.exists(out_path):
